@@ -8,7 +8,7 @@ public class SceneController : MonoBehaviour
 {
     public Camera firstPersonCamera;
     public ScoreboardController scoreboard;
-    public SnakeController snakeController;
+    public TableController table;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +46,7 @@ public class SceneController : MonoBehaviour
     {
         Debug.Log("Selected plane centered at " + selectedPlane.CenterPose.position);
         scoreboard.SetSelectedPlane(selectedPlane);
-        snakeController.SetPlane(selectedPlane);
+        table.SetPlane(selectedPlane);
     }
 
     void ProcessTouches()
