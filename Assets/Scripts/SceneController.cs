@@ -9,6 +9,8 @@ public class SceneController : MonoBehaviour
     public Camera firstPersonCamera;
     public TableController table;
 
+    public Vector2 startTouchPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,14 +64,31 @@ public class SceneController : MonoBehaviour
         //    SetSelectedPlane(hit.Trackable as DetectedPlane);
         //}
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && GameManager.instance.table == null)
         {
-            TrackableHit hit;
-            TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinBounds | TrackableHitFlags.PlaneWithinPolygon;
-
-            if (Frame.Raycast(Input.mousePosition.x, Input.mousePosition.y, raycastFilter, out hit))
+            if (GameManager.instance.table == null)
             {
-                SetSelectedPlane(hit.Trackable as DetectedPlane);
+                TrackableHit hit;
+                TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinBounds | TrackableHitFlags.PlaneWithinPolygon;
+
+                if (Frame.Raycast(Input.mousePosition.x, Input.mousePosition.y, raycastFilter, out hit))
+                {
+                    SetSelectedPlane(hit.Trackable as DetectedPlane);
+                }
+            }
+        }
+
+        if (Input.touchCount > 0 && GameManager.instance.ball != null) 
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                startTouchPos = touch.position;
+            }
+            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
+            {
+                GameManager.instance.dragDistance = startTouchPos - touch.position;
             }
         }
     }

@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
 
     public int score = 0;
 
+    public GameObject table;
+    public GameObject ball;
+
+    public Vector3 dragDistance;
+
     private void Awake()
     {
         instance = this;
