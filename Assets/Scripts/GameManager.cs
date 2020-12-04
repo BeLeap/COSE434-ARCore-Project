@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public Vector3 ballSpawnPoint;
     public int score = 0;
 
     private void Awake()

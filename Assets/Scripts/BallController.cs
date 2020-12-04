@@ -6,10 +6,8 @@ using GoogleARCore;
 
 public class BallController : MonoBehaviour
 {
-    private DetectedPlane detectedPlane;
     public GameObject ballPrefab;
     public GameObject table;
-    private GameObject ballInstance;
 
     // Start is called before the first frame update
     void Start()
@@ -20,25 +18,11 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (detectedPlane == null)
-        {
-            return;
-        }
 
-        if (detectedPlane.TrackingState != TrackingState.Tracking)
-        {
-            return;
-        }
-
-        if (ballInstance == null && GameManager.instance.ballSpawnPoint != null)
-        {
-            Debug.Log("Spawn Location " + GameManager.instance.ballSpawnPoint);
-            ballInstance = Instantiate(ballPrefab, GameManager.instance.ballSpawnPoint, Quaternion.identity);
-        }
     }
 
-    private void SetSelectedPlane(DetectedPlane selectedPlane)
+    public void SpawnBall(Vector3 pos) 
     {
-        detectedPlane = selectedPlane;
+        Instantiate(ballPrefab, pos, Quaternion.identity);
     }
 }

@@ -461,6 +461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tablePrefab: {fileID: 1138442712437343052, guid: 5b87d2eca6ee8d740b7da18cecbc0c62,
     type: 3}
+  ball: {fileID: 1644258681}
 --- !u!1001 &2133215319
 PrefabInstance:
   m_ObjectHideFlags: 0

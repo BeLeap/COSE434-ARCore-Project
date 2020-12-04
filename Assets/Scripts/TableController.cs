@@ -10,6 +10,8 @@ public class TableController : MonoBehaviour
     public GameObject tablePrefab;
     private GameObject tableInstance;
 
+    public BallController ball;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,8 @@ public class TableController : MonoBehaviour
 
         tableInstance = Instantiate(tablePrefab, pos, Quaternion.Euler(0, -90, 0), transform);
         tableInstance.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
+        ball.SpawnBall(tableInstance.transform.Find("BallSpawnPoint").position);
     }
 
     public void SetPlane(DetectedPlane plane)

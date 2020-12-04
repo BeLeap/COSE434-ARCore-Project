@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TableManager : MonoBehaviour
+public class BallManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.ballSpawnPoint = transform.Find("BallSpawnPoint").position;
+        
     }
 
     // Update is called once per frame

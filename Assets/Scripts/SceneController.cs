@@ -43,7 +43,6 @@ public class SceneController : MonoBehaviour
 
     void SetSelectedPlane(DetectedPlane selectedPlane)
     {
-        Debug.Log("Selected plane centered at " + selectedPlane.CenterPose.position);
         table.SetPlane(selectedPlane);
     }
 
@@ -63,12 +62,15 @@ public class SceneController : MonoBehaviour
         //    SetSelectedPlane(hit.Trackable as DetectedPlane);
         //}
 
-        TrackableHit hit;
-        TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinBounds | TrackableHitFlags.PlaneWithinPolygon;
-
-        if (Frame.Raycast(Input.mousePosition.x, Input.mousePosition.y, raycastFilter, out hit))
+        if (Input.GetMouseButtonDown(0))
         {
-            SetSelectedPlane(hit.Trackable as DetectedPlane);
+            TrackableHit hit;
+            TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinBounds | TrackableHitFlags.PlaneWithinPolygon;
+
+            if (Frame.Raycast(Input.mousePosition.x, Input.mousePosition.y, raycastFilter, out hit))
+            {
+                SetSelectedPlane(hit.Trackable as DetectedPlane);
+            }
         }
     }
 }
