@@ -32,6 +32,7 @@ public class BallController : MonoBehaviour
 
         if (ballInstance == null && GameManager.instance.ballSpawnPoint != null)
         {
+            Debug.Log("Spawn Location " + GameManager.instance.ballSpawnPoint);
             ballInstance = Instantiate(ballPrefab, GameManager.instance.ballSpawnPoint, Quaternion.identity);
         }
     }

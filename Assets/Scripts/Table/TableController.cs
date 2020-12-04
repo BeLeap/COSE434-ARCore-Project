@@ -44,6 +44,7 @@ public class TableController : MonoBehaviour
         Vector3 pos = detectedPlane.CenterPose.position;
 
         tableInstance = Instantiate(tablePrefab, pos, Quaternion.Euler(0, -90, 0), transform);
+        tableInstance.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
     }
 
     public void SetPlane(DetectedPlane plane)
