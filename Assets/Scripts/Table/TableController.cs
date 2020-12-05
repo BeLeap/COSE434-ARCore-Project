@@ -36,11 +36,17 @@ public class TableController : MonoBehaviour
             return;
         }
 
-        Vector3 pos = detectedPlane.CenterPose.position;
+        TrackableHit hit;
+        TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinBounds;
 
-        GameManager.instance.table = Instantiate(tablePrefab, pos, Quaternion.Euler(0, -90, 0), transform);
+        if (Frame.Raycast(Screen.width / 2, Screen.height / 2, raycastFilter, out hit))
+        {
+            Vector3 pos = hit.Pose.position - new Vector3(0.25f, 0, 0);
 
-        ball.SpawnBall(GameManager.instance.table.transform.Find("BallSpawnPoint").position);
+            GameManager.instance.table = Instantiate(tablePrefab, pos, Quaternion.Euler(0, -90, 0), transform);
+
+            ball.SpawnBall(GameManager.instance.table.transform.Find("BallSpawnPoint").position);
+        }
     }
 
     public void SetPlane(DetectedPlane plane)

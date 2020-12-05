@@ -4,12 +4,19 @@ using UnityEngine;
 
 using GoogleARCore;
 
+#if UNITY_EDITOR
+using Input = GoogleARCore.InstantPreviewInput;
+#endif
+
 public class SceneController : MonoBehaviour
 {
     public Camera firstPersonCamera;
     public TableController table;
+    public ForceArrowManager forceArrow;
 
-    public Vector2 startTouchPos;
+    private Vector2 startTouchPos;
+
+    public float maxDragDistance = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -50,21 +57,18 @@ public class SceneController : MonoBehaviour
 
     void ProcessTouches()
     {
-        //Touch touch;
-        //if (Input.touchCount < 1 || (touch = Input.GetTouch(0)).phase != TouchPhase.Began)
-        //{
-        //    return;
-        //}
+        if (Input.touchCount < 1)
+        {
+            return;
+        }
 
-        //TrackableHit hit;
-        //TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinBounds | TrackableHitFlags.PlaneWithinPolygon;
+        Touch touch = Input.GetTouch(0);
 
-        //if (Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out hit))
-        //{
-        //    SetSelectedPlane(hit.Trackable as DetectedPlane);
-        //}
-
-        if (Input.GetMouseButtonDown(0) && GameManager.instance.table == null)
+        if (touch.phase == TouchPhase.Began)
+        {
+            startTouchPos = touch.position;
+        }
+        else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
         {
             if (GameManager.instance.table == null)
             {
@@ -76,20 +80,20 @@ public class SceneController : MonoBehaviour
                     SetSelectedPlane(hit.Trackable as DetectedPlane);
                 }
             }
+
+            if (GameManager.instance.ball != null)
+            {
+                Vector3 start = GameManager.instance.ball.transform.position;
+
+                GameManager.instance.dragDistance = (startTouchPos - touch.position) * 0.001f;
+                Vector3 end = new Vector3(start.x + GameManager.instance.dragDistance.x, start.y, start.z + GameManager.instance.dragDistance.y);
+                forceArrow.Draw(start, end);
+            }
         }
-
-        if (Input.touchCount > 0 && GameManager.instance.ball != null) 
+        else if (touch.phase == TouchPhase.Ended && GameManager.instance.ball != null)
         {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
-            {
-                startTouchPos = touch.position;
-            }
-            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
-            {
-                GameManager.instance.dragDistance = startTouchPos - touch.position;
-            }
+            GameManager.instance.ball.GetComponent<BallManager>().Hit(GameManager.instance.dragDistance);
+            forceArrow.Destroy();
         }
     }
 }

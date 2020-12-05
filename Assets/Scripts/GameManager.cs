@@ -6,12 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int score = 0;
+    public int batting = 0;
 
     public GameObject table;
     public GameObject ball;
 
-    public Vector3 dragDistance;
+    public Vector2 dragDistance;
 
     private void Awake()
     {
