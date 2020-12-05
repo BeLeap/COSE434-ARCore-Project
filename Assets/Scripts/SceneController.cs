@@ -42,11 +42,13 @@ public class SceneController : MonoBehaviour
     {
         if (Session.Status == SessionStatus.ErrorPermissionNotGranted)
         {
-            StartCoroutine(CodelabUtils.ToastAndExit("Camera permission is needed to run this application.", 5));
+            ShowAndroidToastMessage("Camera permission is needed to run this application");
+            Invoke("Quit", 5);
         }
         else if (Session.Status.IsError())
         {
-            StartCoroutine(CodelabUtils.ToastAndExit("ARCore encountered a problem connecting. Please restart the app.", 5));
+            ShowAndroidToastMessage("ARCore encountered a problem connecting. Please restart the app.");
+            Invoke("Quit", 5);
         }
     }
 
@@ -95,5 +97,28 @@ public class SceneController : MonoBehaviour
             GameManager.instance.ball.GetComponent<BallManager>().Hit(GameManager.instance.dragDistance);
             forceArrow.Destroy();
         }
+    }
+    private void ShowAndroidToastMessage(string message)
+    {
+        AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject unityActivity =
+            unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+
+        if (unityActivity != null)
+        {
+            AndroidJavaClass toastClass = new AndroidJavaClass("android.widget.Toast");
+            unityActivity.Call("runOnUiThread", new AndroidJavaRunnable(() =>
+            {
+                AndroidJavaObject toastObject =
+                    toastClass.CallStatic<AndroidJavaObject>(
+                        "makeText", unityActivity, message, 0);
+                toastObject.Call("show");
+            }));
+        }
+    }
+
+    private void Quit()
+    {
+        Application.Quit();
     }
 }

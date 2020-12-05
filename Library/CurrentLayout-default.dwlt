@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 808, y: 471}
   m_MaxSize: {x: 22003, y: 14021}
   vertical: 0
-  controlID: 33
+  controlID: 58
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,10 +161,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1130
+    width: 576
     height: 947
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -189,14 +189,14 @@ MonoBehaviour:
   - {fileID: 11}
   m_Position:
     serializedVersion: 2
-    x: 1130
+    x: 576
     y: 0
-    width: 337
+    width: 763
     height: 947
   m_MinSize: {x: 232, y: 471}
   m_MaxSize: {x: 10002, y: 14021}
   vertical: 1
-  controlID: 82
+  controlID: 59
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -212,9 +212,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1467
+    x: 1339
     y: 0
-    width: 275
+    width: 403
     height: 947
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
@@ -240,7 +240,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 337
+    width: 763
     height: 416
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
@@ -266,7 +266,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 416
-    width: 337
+    width: 763
     height: 531
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
@@ -348,9 +348,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1467
+    x: 1339
     y: 73
-    width: 273
+    width: 401
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_OpenAddComponentMenu: 0
@@ -386,9 +386,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1130
+    x: 576
     y: 489
-    width: 335
+    width: 761
     height: 510
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
@@ -404,20 +404,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Batting
+    - Assets/GoogleARCore/Examples/Common/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Batting
+  - Assets/GoogleARCore/Examples/Common/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\ckdtj\GitHub\COSE434-ARCore-Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2c3a0000
-    m_LastClickedID: 14892
-    m_ExpandedIDs: 00000000fa390000fc390000fe390000023a0000043a0000063a0000083a00000a3a000000ca9a3b
+    m_SelectedIDs: a83d0000
+    m_LastClickedID: 15784
+    m_ExpandedIDs: 000000000c3a00000e3a0000103a0000123a0000143a0000283a0000743a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -445,7 +445,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fa390000fc390000fe390000003a0000023a0000043a0000063a0000083a00000a3a0000
+    m_ExpandedIDs: 000000000c3a00000e3a0000103a0000123a0000143a0000163a0000183a00001a3a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -500,7 +500,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 110
+  m_DirectoriesAreaWidth: 212
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -616,7 +616,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 1129
+    width: 575
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
@@ -729,9 +729,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1130
+    x: 576
     y: 73
-    width: 335
+    width: 761
     height: 395
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
@@ -739,7 +739,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: b8a1ffffd2a1ffffd4a1ffffa0a2ffffbaa2ffff30a4fffff2a5ffffa4a6ffffbea6ffff30a8ffff60abffff7aabffffe6acffffaabbffffd8bcfffff2bcffff6ebeffffe0c0fffffac0ffff76c2ffff64c7ffff6eccffffecd8ffff72deffffb8e4ffffd2e4ffff4ee6ffff88e8ffffa2e8ffff1eeaffff7aefffff94efffff14f1ffff4af1ffff52f2ffff6cf2ffffe8f3ffff94f4ffffaef4ffff2ef6ffff94f7ffffaef7ffff2ef9ffff6afbffff000000000a000000a04a000084590000
+      m_ExpandedIDs: b6f5ffffd0f5ffffd2f5ffff4af6ffff7af6ffffd6f6fffff0f6fffff2f6ffff36f7ffff50f7ffff52f7ffffc0f7ffffdaf7ffff48f9ffff6afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
