@@ -77,7 +77,7 @@ public class SceneController : MonoBehaviour
                 TrackableHit hit;
                 TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinBounds | TrackableHitFlags.PlaneWithinPolygon;
 
-                if (Frame.Raycast(Input.mousePosition.x, Input.mousePosition.y, raycastFilter, out hit))
+                if (Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out hit))
                 {
                     SetSelectedPlane(hit.Trackable as DetectedPlane);
                 }
